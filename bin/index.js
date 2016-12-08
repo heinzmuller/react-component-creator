@@ -1,4 +1,5 @@
-'use strict';
+#!/usr/bin/env node
+
 var inquirer = require('inquirer');
 var fs = require('fs');
 var path = require('path');
