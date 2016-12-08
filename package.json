@@ -1,13 +1,13 @@
 {
-  "name": "react-component",
+  "name": "react-component-creator",
   "version": "1.0.0",
-  "description": "",
+  "description": "A tool that creates react components quickly",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alexander Nilsson <alexander@alxoptr.se>",
   "license": "ISC",
   "dependencies": {
     "inquirer": "^2.0.0"
