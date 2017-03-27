@@ -1,13 +1,13 @@
 {
   "name": "react-component-creator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tool that creates react components quickly",
-  "main": "bin/index.js",
+  "main": "./index.js",
   "bin": {
-    "react-component-creator": "./bin/index"
+    "react-component-creator": "./index.js"
   },
   "scripts": {
-    "start": "./bin/index.js",
+    "start": "./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
