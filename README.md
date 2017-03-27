@@ -1,3 +1,3 @@
-# Create React Component
-- npm install -g create-react-component
-- create-react-component <dir>
+# React Component Creator
+- `npm install -g react-component-creator`
+- `react-component-creator <dir>`
