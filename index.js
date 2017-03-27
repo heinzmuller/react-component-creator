@@ -1,18 +1,7 @@
 #!/usr/bin/env node
-
-var inquirer = require('inquirer');
-var fs = require('fs');
-var path = require('path');
-
-function mkdirp(target) {
-    target.split('/').forEach((dir, index, splits) => {
-        const parent = splits.slice(0, index).join('/');
-        const dirPath = path.resolve(parent, dir);
-        if (!fs.existsSync(dirPath)) {
-            fs.mkdirSync(dirPath);
-        }
-    });
-}
+const inquirer = require('inquirer');
+const fs = require('fs');
+const path = require('path');
 
 const dir = process.argv[2]
 
@@ -20,62 +9,24 @@ if(! dir) {
     return console.error('No directory defined')
 }
 
-function component(type, name, cssModule) {
+const templates = {
+    component: {
+        class: require('./templates/component/class'),
+        function: require('./templates/component/function'),
+        index: require('./templates/component/index')
+    }
+}
+
+function component(name, type) {
     switch (type)
     {
         case 'React.Component':
         case 'React.PureComponent':
-            return (
-`import React, { PropTypes } from 'react'
-${cssModule ? `
-import css from './${name}.scss'
-` : ''}
-class ${name} extends ${type} {
-    static propTypes = {
-        children: PropTypes.element
-    }
+            return templates.component.class({ name, type })
 
-    render() {
-        const {
-            children
-        } = this.props
-
-        return (
-            <div>
-                <h1>${name}</h1>
-                {children}
-            </div>
-        )
-    }
-)
-
-export default ${name}
-`
-            )
-
-        case 'Stateless':
+        case 'Function':
         default:
-            return (
-`import React, { PropTypes } from 'react'
-${cssModule ? `
-import css from './${name}.scss'
-` : ''}
-const ${name} = ({
-    children
-}) => (
-    <div>
-        <h1>${name}</h1>
-        {children}
-    </div>
-)
-
-${name}.propTypes = {
-    children: PropTypes.element
-}
-
-export default ${name}
-`
-            )
+            return templates.component.function({ name })
     }
 }
 
@@ -89,7 +40,7 @@ inquirer.prompt([
         type: 'list',
         name: 'type',
         message: 'Type of component?',
-        choices: ['Stateless', 'React.Component', 'React.PureComponent']
+        choices: ['Function', 'React.Component', 'React.PureComponent']
     },
     {
         type: 'confirm',
@@ -102,24 +53,31 @@ inquirer.prompt([
     type,
     cssModule
 }) {
-    const componentDirectory = path.join(__dirname, dir, name)
-    console.log('componentDirectory', componentDirectory)
+    const componentDirectory = path.join(process.cwd(), dir, name)
     const filename = path.join(componentDirectory, `${name}.jsx`)
-    console.log('filename', filename)
 
     if(fs.existsSync(componentDirectory)) {
         return console.error('Component already exists')
     }
 
-    mkdirp(componentDirectory)
-    fs.writeFileSync(filename, component(type, name, cssModule))
-    fs.writeFileSync(path.join(componentDirectory, 'index.js'), (
-`export default from './${name}.jsx'
+    fs.mkdirSync(componentDirectory)
 
-export ${name} from './${name}.jsx'
-`
-    ))
+    fs.writeFileSync(
+        filename,
+        component(name, type)
+    )
+
+    fs.writeFileSync(
+        path.join(componentDirectory, 'index.js'),
+        templates.component.index({ name })
+    )
+
     if(cssModule) {
+        var data = fs.readFileSync(filename).toString().split("\n");
+        data.splice(2, 0, `import css from './${name}.scss'\n`);
+        var text = data.join("\n");
+
+        fs.writeFileSync(filename, text)
         fs.writeFileSync(path.join(componentDirectory, `${name}.scss`), '')
     }
 });
