@@ -1,4 +1,5 @@
-module.exports = ({ name }) => `import React, { PropTypes } from 'react'
+module.exports = ({ name }) => `import React from 'react'
+import PropTypes from 'prop-types'
 
 const ${name} = ({
     children

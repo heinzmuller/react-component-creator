@@ -1,4 +1,5 @@
-module.exports = ({ name, type }) => `import React, { PropTypes } from 'react'
+module.exports = ({ name, type }) => `import React from 'react'
+import PropTypes from 'prop-types'
 
 class ${name} extends ${type} {
     static propTypes = {

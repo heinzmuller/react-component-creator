@@ -13,7 +13,8 @@ const templates = {
     component: {
         class: require('./templates/component/class'),
         function: require('./templates/component/function'),
-        index: require('./templates/component/index')
+        index: require('./templates/component/index'),
+        story: require('./templates/component/story'),
     }
 }
 
@@ -47,11 +48,18 @@ inquirer.prompt([
         name: 'cssModule',
         message: 'CSS module?',
         default: true
+    },
+    {
+        type: 'confirm',
+        name: 'story',
+        message: 'Storybooks story?',
+        default: true
     }
 ]).then(function ({
     name,
     type,
-    cssModule
+    cssModule,
+    story,
 }) {
     const componentDirectory = path.join(process.cwd(), dir, name)
     const filename = path.join(componentDirectory, `${name}.jsx`)
@@ -74,10 +82,17 @@ inquirer.prompt([
 
     if(cssModule) {
         var data = fs.readFileSync(filename).toString().split("\n");
-        data.splice(2, 0, `import css from './${name}.scss'\n`);
+        data.splice(3, 0, `import css from './${name}.module.scss'\n`);
         var text = data.join("\n");
 
         fs.writeFileSync(filename, text)
-        fs.writeFileSync(path.join(componentDirectory, `${name}.scss`), '')
+        fs.writeFileSync(path.join(componentDirectory, `${name}.module.scss`), '')
+    }
+
+    if(story) {
+        fs.writeFileSync(
+            path.join(componentDirectory, `${name}.story.jsx`),
+            templates.component.story({ name })
+        )
     }
 });
