@@ -25,11 +25,13 @@ function component(name, type, cssModule, typescript) {
 
 function createComponent(
     dir,
-    name,
-    typescript,
-    type,
-    cssModule,
-    story
+    {
+        name,
+        typescript,
+        type,
+        cssModule,
+        story,
+    }
 ) {
     const componentDirectory = path.join(dir, name)
     const filename = path.join(componentDirectory, `${name}.${typescript ? "tsx" : "jsx"}`)
