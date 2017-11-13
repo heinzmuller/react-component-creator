@@ -1,7 +1,7 @@
-module.exports = ({ name, cssModule, typescript }) => `import ${typescript ? "* as React" : "React"} from 'react'${typescript ? "" : `
+module.exports = ({ name, stylesheet, typescript }) => `import ${typescript ? "* as React" : "React"} from 'react'${typescript ? "" : `
 import PropTypes from 'prop-types'`}
-${cssModule ? `
-import ${typescript ? "* as css" : "css"} from './${name}.module.scss'
+${stylesheet ? `
+${stylesheet}
 ` : ""}
 const ${name} = (props) => (
     <div>

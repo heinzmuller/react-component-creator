@@ -26,18 +26,18 @@ inquirer.prompt([
         type: 'list',
         name: 'type',
         message: 'Type of component?',
-        choices: ['Function', 'React.Component', 'React.PureComponent']
+        choices: ['React.Component', 'React.PureComponent', 'Function']
     },
     {
-        type: 'confirm',
-        name: 'cssModule',
-        message: 'CSS module?',
-        default: true
+        type: 'list',
+        name: 'stylesheet',
+        message: 'Stylesheet?',
+        choices: ['No', 'CSS', 'CSS Module', 'SCSS', 'SCSS Module']
     },
     {
         type: 'confirm',
         name: 'story',
         message: 'Storybooks story?',
-        default: true
+        default: false
     }
 ]).then(input => createComponent(path.join(process.cwd(), dir), input));

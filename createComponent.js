@@ -10,16 +10,16 @@ const templates = {
     }
 }
 
-function component(name, type, cssModule, typescript) {
+function component(name, type, stylesheet, typescript) {
     switch (type)
     {
         case 'React.Component':
         case 'React.PureComponent':
-            return templates.component.class({ name, type, cssModule, typescript })
+            return templates.component.class({ name, type, stylesheet, typescript })
 
         case 'Function':
         default:
-            return templates.component.function({ name, cssModule, typescript })
+            return templates.component.function({ name, stylesheet, typescript })
     }
 }
 
@@ -29,22 +29,33 @@ function createComponent(
         name,
         typescript,
         type,
-        cssModule,
+        stylesheet,
         story,
     }
 ) {
     const componentDirectory = path.join(dir, name)
     const filename = path.join(componentDirectory, `${name}.${typescript ? "tsx" : "jsx"}`)
 
+    const hasStylesheet = stylesheet !== 'No'
+    const stylesheetIsModule = stylesheet.indexOf('Module') >= 0
+    const stylesheetExtension = stylesheet.indexOf('SCSS') >= 0 ? 'scss' : 'css'
+    const stylesheetFilename = `${name}${stylesheetIsModule ? '.module' : ''}.${stylesheetExtension}`
+
     if(fs.existsSync(componentDirectory)) {
-        return console.error('Component already exists')
+        return console.error(name, 'Component already exists')
     }
 
     fs.mkdirSync(componentDirectory)
 
+    let stylesheetImport
+
+    if(hasStylesheet) {
+        stylesheetImport = `import ${stylesheetIsModule ? 'css from ' : ''}'./${stylesheetFilename}'`
+    }
+
     fs.writeFileSync(
         filename,
-        component(name, type, cssModule, typescript)
+        component(name, type, stylesheetImport, typescript)
     )
 
     fs.writeFileSync(
@@ -52,8 +63,8 @@ function createComponent(
         templates.component.index({ name, typescript })
     )
 
-    if(cssModule) {
-        fs.writeFileSync(path.join(componentDirectory, `${name}.module.scss`), '')
+    if(hasStylesheet) {
+        fs.writeFileSync(path.join(componentDirectory, stylesheetFilename), '')
     }
 
     if(story) {

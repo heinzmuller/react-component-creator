@@ -1,7 +1,7 @@
-module.exports = ({ name, type, cssModule, typescript }) => `import ${typescript ? "* as React" : "React"} from 'react'${typescript ? "" : `
+module.exports = ({ name, type, stylesheet, typescript }) => `import ${typescript ? "* as React" : "React"} from 'react'${typescript ? "" : `
 import PropTypes from 'prop-types'`}
-${cssModule ? `
-import ${typescript ? "* as css" : "css"} from './${name}.module.scss'
+${stylesheet ? `
+${stylesheet}
 ` : ""}
 class ${name} extends ${type} {${typescript?"": `
     static propTypes = {
