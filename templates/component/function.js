@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'`}
 ${stylesheet ? `
 ${stylesheet}
 ` : ""}
-const ${name} = (props) => (
+const ${name}${typescript ? ": React.SFC" : ""} = (props) => (
     <div>
         <h1>${name}</h1>
     </div>

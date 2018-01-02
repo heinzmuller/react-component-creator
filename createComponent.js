@@ -50,7 +50,11 @@ function createComponent(
     let stylesheetImport
 
     if(hasStylesheet) {
-        stylesheetImport = `import ${stylesheetIsModule ? 'css from ' : ''}'./${stylesheetFilename}'`
+        if(typescript) {
+            stylesheetImport = `${stylesheetIsModule ? 'const css = ' : ''}require('./${stylesheetFilename}')`
+        } else {
+            stylesheetImport = `import ${stylesheetIsModule ? 'css from ' : ''}'./${stylesheetFilename}'`
+        }
     }
 
     fs.writeFileSync(
