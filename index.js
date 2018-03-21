@@ -33,7 +33,7 @@ inquirer
             type: 'list',
             name: 'stylesheet',
             message: 'Stylesheet?',
-            choices: ['No', 'CSS', 'CSS Module', 'SCSS', 'SCSS Module']
+            choices: ['No', 'SCSS', 'SCSS Module', 'CSS', 'CSS Module']
         },
         {
             type: 'list',
