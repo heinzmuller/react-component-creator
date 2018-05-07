@@ -1,4 +1,5 @@
 .editorconfig
+.eslintrc
 .prettierignore
 .prettierrc
 generateComponents.js
