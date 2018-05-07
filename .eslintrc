@@ -4,7 +4,7 @@
         "commonjs": true,
         "es6": true,
         "node": true,
-        "mocha": true
+        "jest": true
     },
     "globals": {
         "__LOCAL__": true,
@@ -19,11 +19,9 @@
         },
         "sourceType": "module"
     },
-    "plugins": [
-        "react"
-    ],
+    "plugins": ["react"],
     "rules": {
-        "indent": [2, 4, {"SwitchCase": 1}],
+        "indent": [2, 4, { "SwitchCase": 1 }],
         "semi": [0],
         "no-console": [2, { "allow": ["error", "warn"] }]
     }

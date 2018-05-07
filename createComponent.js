@@ -37,7 +37,13 @@ function component(templates, name, type, stylesheet, stylesheetIsModule) {
     }
 }
 
-function createComponent(dir, { name, ts, type, stylesheet, story }) {
+function createComponent(
+    dir,
+    { name, ts, type, stylesheet, story },
+    write = true
+) {
+    const output = {}
+
     const typescript = ts === 'Yes'
     const storybook = story === 'Yes'
 
@@ -49,6 +55,10 @@ function createComponent(dir, { name, ts, type, stylesheet, story }) {
         `${name}.${typescript ? 'tsx' : 'jsx'}`
     )
 
+    if (fs.existsSync(componentDirectory) && write) {
+        return console.error(name, 'Component already exists')
+    }
+
     const hasStylesheet = stylesheet !== 'No'
     const stylesheetIsModule = stylesheet.indexOf('Module') >= 0
     const stylesheetExtension = stylesheet.indexOf('SCSS') >= 0 ? 'scss' : 'css'
@@ -56,41 +66,63 @@ function createComponent(dir, { name, ts, type, stylesheet, story }) {
         ? `${name}${stylesheetIsModule ? '.module' : ''}.${stylesheetExtension}`
         : ''
 
-    if (fs.existsSync(componentDirectory)) {
-        return console.error(name, 'Component already exists')
-    }
+    output['index'] = templates.index({ name })
 
-    fs.mkdirSync(componentDirectory)
-
-    fs.writeFileSync(
-        filename,
-        component(templates, name, type, stylesheetFilename, stylesheetIsModule)
-    )
-
-    fs.writeFileSync(
-        path.join(componentDirectory, `index.${typescript ? 'ts' : 'js'}`),
-        templates.index({ name })
+    output['component'] = component(
+        templates,
+        name,
+        type,
+        stylesheetFilename,
+        stylesheetIsModule
     )
 
     if (hasStylesheet) {
-        fs.writeFileSync(
-            path.join(componentDirectory, stylesheetFilename),
-            stylesheetIsModule
-                ? `.wrapper {
-    padding: 10px;
+        output['stylesheet'] = stylesheetIsModule
+            ? `.wrapper {
+padding: 10px;
 }`
-                : ''
-        )
+            : ''
     }
 
     if (storybook) {
-        fs.writeFileSync(
-            path.join(
-                componentDirectory,
-                `${name}.story.${typescript ? 'tsx' : 'jsx'}`
-            ),
-            templates.story({ name })
-        )
+        output['story'] = templates.story({ name })
+    }
+
+    if (write) {
+        fs.mkdirSync(componentDirectory)
+
+        if (output['index']) {
+            fs.writeFileSync(
+                path.join(
+                    componentDirectory,
+                    `index.${typescript ? 'ts' : 'js'}`
+                ),
+                output['index']
+            )
+        }
+
+        if (output['component']) {
+            fs.writeFileSync(filename, output['component'])
+        }
+
+        if (output['stylesheet']) {
+            fs.writeFileSync(
+                path.join(componentDirectory, stylesheetFilename),
+                output['stylesheet']
+            )
+        }
+
+        if (output['story']) {
+            fs.writeFileSync(
+                path.join(
+                    componentDirectory,
+                    `${name}.story.${typescript ? 'tsx' : 'jsx'}`
+                ),
+                output['story']
+            )
+        }
+    } else {
+        return output
     }
 }
 

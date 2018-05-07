@@ -1,0 +1,7 @@
+.editorconfig
+.prettierignore
+.prettierrc
+generateComponents.js
+README.md
+yarn.lock
+__tests__

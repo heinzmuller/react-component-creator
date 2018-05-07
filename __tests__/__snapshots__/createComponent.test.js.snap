@@ -1,0 +1,641 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createComponent Class 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+class Class extends React.Component {
+    static propTypes = {
+        children: PropTypes.element
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>Class</h1>
+            </div>
+        )
+    }
+}
+
+export default Class
+",
+  "index": "export default from './Class.jsx'
+export Class from './Class.jsx'
+",
+}
+`;
+
+exports[`createComponent ClassCSS 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+require('./ClassCSS.css')
+
+class ClassCSS extends React.Component {
+    static propTypes = {
+        children: PropTypes.element
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>ClassCSS</h1>
+            </div>
+        )
+    }
+}
+
+export default ClassCSS
+",
+  "index": "export default from './ClassCSS.jsx'
+export ClassCSS from './ClassCSS.jsx'
+",
+  "stylesheet": "",
+}
+`;
+
+exports[`createComponent ClassCSSModule 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+const css = require('./ClassCSSModule.module.css')
+
+class ClassCSSModule extends React.Component {
+    static propTypes = {
+        children: PropTypes.element
+    }
+
+    render() {
+        return (
+            <div className={css.wrapper}>
+                <h1>ClassCSSModule</h1>
+            </div>
+        )
+    }
+}
+
+export default ClassCSSModule
+",
+  "index": "export default from './ClassCSSModule.jsx'
+export ClassCSSModule from './ClassCSSModule.jsx'
+",
+  "stylesheet": ".wrapper {
+padding: 10px;
+}",
+}
+`;
+
+exports[`createComponent ClassSCSS 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+require('./ClassSCSS.scss')
+
+class ClassSCSS extends React.Component {
+    static propTypes = {
+        children: PropTypes.element
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>ClassSCSS</h1>
+            </div>
+        )
+    }
+}
+
+export default ClassSCSS
+",
+  "index": "export default from './ClassSCSS.jsx'
+export ClassSCSS from './ClassSCSS.jsx'
+",
+  "stylesheet": "",
+}
+`;
+
+exports[`createComponent ClassSCSSModule 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+const css = require('./ClassSCSSModule.module.scss')
+
+class ClassSCSSModule extends React.Component {
+    static propTypes = {
+        children: PropTypes.element
+    }
+
+    render() {
+        return (
+            <div className={css.wrapper}>
+                <h1>ClassSCSSModule</h1>
+            </div>
+        )
+    }
+}
+
+export default ClassSCSSModule
+",
+  "index": "export default from './ClassSCSSModule.jsx'
+export ClassSCSSModule from './ClassSCSSModule.jsx'
+",
+  "stylesheet": ".wrapper {
+padding: 10px;
+}",
+}
+`;
+
+exports[`createComponent ClassStory 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+class ClassStory extends React.Component {
+    static propTypes = {
+        children: PropTypes.element
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>ClassStory</h1>
+            </div>
+        )
+    }
+}
+
+export default ClassStory
+",
+  "index": "export default from './ClassStory.jsx'
+export ClassStory from './ClassStory.jsx'
+",
+  "story": "import React from 'react'
+import { storiesOf } from '@storybook/react'
+
+import ClassStory from './ClassStory.jsx'
+
+const stories = storiesOf('ClassStory', module)
+
+stories.add('Default', () => (
+    <ClassStory />
+))
+",
+}
+`;
+
+exports[`createComponent ClassTS 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+class ClassTS extends React.Component {
+    static propTypes = {
+        children: PropTypes.element
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>ClassTS</h1>
+            </div>
+        )
+    }
+}
+
+export default ClassTS
+",
+  "index": "export default from './ClassTS.jsx'
+export ClassTS from './ClassTS.jsx'
+",
+}
+`;
+
+exports[`createComponent ClassTSCSS 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+require('./ClassTSCSS.css')
+
+class ClassTSCSS extends React.Component {
+    static propTypes = {
+        children: PropTypes.element
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>ClassTSCSS</h1>
+            </div>
+        )
+    }
+}
+
+export default ClassTSCSS
+",
+  "index": "export default from './ClassTSCSS.jsx'
+export ClassTSCSS from './ClassTSCSS.jsx'
+",
+  "stylesheet": "",
+}
+`;
+
+exports[`createComponent ClassTSCSSModule 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+const css = require('./ClassTSCSSModule.module.css')
+
+class ClassTSCSSModule extends React.Component {
+    static propTypes = {
+        children: PropTypes.element
+    }
+
+    render() {
+        return (
+            <div className={css.wrapper}>
+                <h1>ClassTSCSSModule</h1>
+            </div>
+        )
+    }
+}
+
+export default ClassTSCSSModule
+",
+  "index": "export default from './ClassTSCSSModule.jsx'
+export ClassTSCSSModule from './ClassTSCSSModule.jsx'
+",
+  "stylesheet": ".wrapper {
+padding: 10px;
+}",
+}
+`;
+
+exports[`createComponent ClassTSSCSS 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+require('./ClassTSSCSS.scss')
+
+class ClassTSSCSS extends React.Component {
+    static propTypes = {
+        children: PropTypes.element
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>ClassTSSCSS</h1>
+            </div>
+        )
+    }
+}
+
+export default ClassTSSCSS
+",
+  "index": "export default from './ClassTSSCSS.jsx'
+export ClassTSSCSS from './ClassTSSCSS.jsx'
+",
+  "stylesheet": "",
+}
+`;
+
+exports[`createComponent ClassTSSCSSModule 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+const css = require('./ClassTSSCSSModule.module.scss')
+
+class ClassTSSCSSModule extends React.Component {
+    static propTypes = {
+        children: PropTypes.element
+    }
+
+    render() {
+        return (
+            <div className={css.wrapper}>
+                <h1>ClassTSSCSSModule</h1>
+            </div>
+        )
+    }
+}
+
+export default ClassTSSCSSModule
+",
+  "index": "export default from './ClassTSSCSSModule.jsx'
+export ClassTSSCSSModule from './ClassTSSCSSModule.jsx'
+",
+  "stylesheet": ".wrapper {
+padding: 10px;
+}",
+}
+`;
+
+exports[`createComponent ClassTSStory 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+class ClassTSStory extends React.Component {
+    static propTypes = {
+        children: PropTypes.element
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>ClassTSStory</h1>
+            </div>
+        )
+    }
+}
+
+export default ClassTSStory
+",
+  "index": "export default from './ClassTSStory.jsx'
+export ClassTSStory from './ClassTSStory.jsx'
+",
+  "story": "import React from 'react'
+import { storiesOf } from '@storybook/react'
+
+import ClassTSStory from './ClassTSStory.jsx'
+
+const stories = storiesOf('ClassTSStory', module)
+
+stories.add('Default', () => (
+    <ClassTSStory />
+))
+",
+}
+`;
+
+exports[`createComponent Func 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+const Func = (props) => (
+    <div>
+        <h1>Func</h1>
+    </div>
+)
+
+Func.propTypes = {
+    children: PropTypes.element
+}
+
+export default Func
+",
+  "index": "export default from './Func.jsx'
+export Func from './Func.jsx'
+",
+}
+`;
+
+exports[`createComponent FuncCSS 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+require('./FuncCSS.css')
+
+const FuncCSS = (props) => (
+    <div>
+        <h1>FuncCSS</h1>
+    </div>
+)
+
+FuncCSS.propTypes = {
+    children: PropTypes.element
+}
+
+export default FuncCSS
+",
+  "index": "export default from './FuncCSS.jsx'
+export FuncCSS from './FuncCSS.jsx'
+",
+  "stylesheet": "",
+}
+`;
+
+exports[`createComponent FuncCSSModule 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+const css = require('./FuncCSSModule.module.css')
+
+const FuncCSSModule = (props) => (
+    <div className={css.wrapper}>
+        <h1>FuncCSSModule</h1>
+    </div>
+)
+
+FuncCSSModule.propTypes = {
+    children: PropTypes.element
+}
+
+export default FuncCSSModule
+",
+  "index": "export default from './FuncCSSModule.jsx'
+export FuncCSSModule from './FuncCSSModule.jsx'
+",
+  "stylesheet": ".wrapper {
+padding: 10px;
+}",
+}
+`;
+
+exports[`createComponent FuncSCSS 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+require('./FuncSCSS.scss')
+
+const FuncSCSS = (props) => (
+    <div>
+        <h1>FuncSCSS</h1>
+    </div>
+)
+
+FuncSCSS.propTypes = {
+    children: PropTypes.element
+}
+
+export default FuncSCSS
+",
+  "index": "export default from './FuncSCSS.jsx'
+export FuncSCSS from './FuncSCSS.jsx'
+",
+  "stylesheet": "",
+}
+`;
+
+exports[`createComponent FuncSCSSModule 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+const css = require('./FuncSCSSModule.module.scss')
+
+const FuncSCSSModule = (props) => (
+    <div className={css.wrapper}>
+        <h1>FuncSCSSModule</h1>
+    </div>
+)
+
+FuncSCSSModule.propTypes = {
+    children: PropTypes.element
+}
+
+export default FuncSCSSModule
+",
+  "index": "export default from './FuncSCSSModule.jsx'
+export FuncSCSSModule from './FuncSCSSModule.jsx'
+",
+  "stylesheet": ".wrapper {
+padding: 10px;
+}",
+}
+`;
+
+exports[`createComponent FuncTS 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+const FuncTS = (props) => (
+    <div>
+        <h1>FuncTS</h1>
+    </div>
+)
+
+FuncTS.propTypes = {
+    children: PropTypes.element
+}
+
+export default FuncTS
+",
+  "index": "export default from './FuncTS.jsx'
+export FuncTS from './FuncTS.jsx'
+",
+}
+`;
+
+exports[`createComponent FuncTSCSS 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+require('./FuncTSCSS.css')
+
+const FuncTSCSS = (props) => (
+    <div>
+        <h1>FuncTSCSS</h1>
+    </div>
+)
+
+FuncTSCSS.propTypes = {
+    children: PropTypes.element
+}
+
+export default FuncTSCSS
+",
+  "index": "export default from './FuncTSCSS.jsx'
+export FuncTSCSS from './FuncTSCSS.jsx'
+",
+  "stylesheet": "",
+}
+`;
+
+exports[`createComponent FuncTSCSSModule 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+const css = require('./FuncTSCSSModule.module.css')
+
+const FuncTSCSSModule = (props) => (
+    <div className={css.wrapper}>
+        <h1>FuncTSCSSModule</h1>
+    </div>
+)
+
+FuncTSCSSModule.propTypes = {
+    children: PropTypes.element
+}
+
+export default FuncTSCSSModule
+",
+  "index": "export default from './FuncTSCSSModule.jsx'
+export FuncTSCSSModule from './FuncTSCSSModule.jsx'
+",
+  "stylesheet": ".wrapper {
+padding: 10px;
+}",
+}
+`;
+
+exports[`createComponent FuncTSSCSS 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+require('./FuncTSSCSS.scss')
+
+const FuncTSSCSS = (props) => (
+    <div>
+        <h1>FuncTSSCSS</h1>
+    </div>
+)
+
+FuncTSSCSS.propTypes = {
+    children: PropTypes.element
+}
+
+export default FuncTSSCSS
+",
+  "index": "export default from './FuncTSSCSS.jsx'
+export FuncTSSCSS from './FuncTSSCSS.jsx'
+",
+  "stylesheet": "",
+}
+`;
+
+exports[`createComponent FuncTSSCSSModule 1`] = `
+Object {
+  "component": "import React from 'react'
+import PropTypes from 'prop-types'
+
+const css = require('./FuncTSSCSSModule.module.scss')
+
+const FuncTSSCSSModule = (props) => (
+    <div className={css.wrapper}>
+        <h1>FuncTSSCSSModule</h1>
+    </div>
+)
+
+FuncTSSCSSModule.propTypes = {
+    children: PropTypes.element
+}
+
+export default FuncTSSCSSModule
+",
+  "index": "export default from './FuncTSSCSSModule.jsx'
+export FuncTSSCSSModule from './FuncTSSCSSModule.jsx'
+",
+  "stylesheet": ".wrapper {
+padding: 10px;
+}",
+}
+`;
