@@ -20,7 +20,7 @@
     },
     "devDependencies": {
         "babel-eslint": "^8.0.1",
-        "eslint": "^4.10.0",
+        "eslint": "^6.1.0",
         "eslint-plugin-react": "^7.4.0",
         "jest": "^24.8.0",
         "prettier": "^1.10.2"
